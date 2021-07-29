@@ -1,0 +1,14 @@
+package("reader")
+df <- read.csv(file.choose())
+print(head(df))
+library(modeest)
+library(ggplot2)
+
+val <- df$DD
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+ggplot(data = df,aes(DD)) + geom_histogram(fill = "#9db2cf") + labs(x = "Diagonal Difference") + theme_light()
+ggplot(data = df,aes(x=P,y=DD)) +geom_point(color = "#9db2cf") + labs(y= "Diagonal Difference") +theme_light()
+ 

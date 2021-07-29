@@ -1,0 +1,4 @@
+(Intercept)          g_t         g_mn      sqrt.p.       yj.mn.        cs.s.    log.mn_s.      yj.s_h.       yj.cs.  
+   1.740134     0.033638    -0.222676    -0.004313     0.144445    -0.025258    -0.172013    -0.003334     0.101921  
+asinh.mcwf.   asinh.m_l.   yj.mcwd_t.    yj.sczfr.      yj.m_f.      yj.h_e.  
+  -0.029235     0.111809    -0.153516     0.003761     0.005206     0.390109  

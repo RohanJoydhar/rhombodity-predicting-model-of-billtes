@@ -1,0 +1,39 @@
+library("reader")
+#read csv
+data <- read.csv(file.choose())
+summary(data)
+
+d <- read.csv(file.choose())
+scaled_data <- scale(d)
+write.csv(scaled_data,"/cloud/project/s.csv")
+library(bestNormalize)
+df <- read.csv(file.choose()) 
+bestNormalize(df$p,allow_orderNorm = FALSE)
+
+lt <- sqrt(df$l_temp + 3.87028)
+dd <- sqrt(df$dd + 1.866851)
+p <- sqrt(df$p + 2.337249 )
+mn_x<- yeojohnson(df$mn)
+mn <- mn_x$x.t
+s_x <- center_scale(df$s)
+s <- s_x$x.t
+mn_s <- log10(df$mn_s + 1.412072)
+sh_x <- yeojohnson(df$super_heat)
+sh <- sh_x$x.t
+tt_x <- yeojohnson(df$tt)
+tt <- tt_x$x.t
+cs_x <- yeojohnson(df$cs)
+cs <- cs_x$x.t
+mcwf <- asinh(df$mcwf)
+ml <- asinh(df$mould_level)
+mcwd_t_x <- yeojohnson(df$mcwd_temp)
+mcwd_t <- mcwd_t_x$x.t
+sczfr_x <- yeojohnson(df$sczfr)
+sczfr <- sczfr_x$x.t
+mf_x <- yeojohnson(df$m_f)
+mf <- mf_x$x.t
+he_x <- yeojohnson(df$heat_ext)
+he<- he_x$x.t
+
+dn <- data.frame(lt,dd,p,mn,s,mn_s,sh,tt,cs,mcwf,ml,mcwd_t,sczfr,mf,he)
+write.csv(dn,"/cloud/project/n.csv")

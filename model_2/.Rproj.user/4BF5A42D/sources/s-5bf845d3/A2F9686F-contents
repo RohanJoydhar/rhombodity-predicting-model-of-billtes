@@ -1,0 +1,10 @@
+library(reader)
+df <- read.csv(file.choose())
+summary(df)
+
+
+
+
+library(tidyverse)
+ggplot(s,aes(new_var)) +geom_histogram(fill = "#9db2cf") + theme_linedraw()
+ggplot(df,aes(x=new_var,y=dd)) +geom_point(color ="#9db2cf") + theme_linedraw()

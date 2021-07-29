@@ -1,0 +1,16 @@
+library("reader")
+#read csv
+data <- read.csv(file.choose())
+summary(data)
+
+data[data == 0] <- NA
+write.csv(data,"/cloud/project/data_with_na.csv")
+
+
+library("mice")
+md.pattern(data)
+impute_data <- mice(data[,4:21],m=3)
+print(impute_data)
+new_data <- complete(impute_data,3)
+write.csv(new_data,"/cloud/project/data_with_impute.csv")
+

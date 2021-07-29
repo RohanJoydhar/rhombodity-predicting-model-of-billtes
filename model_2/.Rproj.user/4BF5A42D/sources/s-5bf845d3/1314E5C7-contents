@@ -1,0 +1,39 @@
+library(bestNormalize)
+df <- read.csv(file.choose()) 
+
+bestNormalize(df$heat_ext)
+
+n_l_temp = exp(df$l_temp)
+n_dd = sqrt(df$dd + 1.85491)
+n_p = sqrt(df$p + 2.33172)
+n_mn = orderNorm(df$mn)
+n_s = orderNorm(df$s)
+n_mn_s = orderNorm(df$mn_s)
+n_sh = orderNorm(df$super_heat)
+n_tt = orderNorm(df$tt)
+n_cs = orderNorm(df$cs)
+n_mcwf = orderNorm(df$mcwf)
+n_ml = orderNorm(df$mould_level)
+n_mcwd_t = orderNorm(df$mcwd_temp)
+n_sczfr = orderNorm(df$sczfr)
+n_mf = orderNorm(df$m_factor)
+n_he = orderNorm(df$heat_ext)
+
+lt <- n_l_temp
+dd <- n_dd
+p <- n_p
+mn <- n_mn$x.t
+s <- n_s$x.t
+mn_s <- n_mn_s$x.t
+sh <- n_sh$x.t
+tt <- n_tt$x.t
+cs <- n_cs$x.t
+mcwf <- n_mcwf$x.t
+ml <- n_mf$x.t
+mcwd_t <- n_mcwd_t$x.t
+sczfr <- n_sczfr$x.t
+mf <- n_mf$x.t
+he <- n_he$x.t
+
+dt <- data.frame(lt,dd,p,mn,s,mn_s,sh,tt,cs,mcwf,ml,mcwd_t,sczfr,mf,he)
+write.csv(dt,"/cloud/project/normalized.csv")

@@ -1,0 +1,83 @@
+package("reader")
+df <- read.csv(file.choose())
+print(head(df))
+library(modeest)
+library(ggplot2)
+
+val <- df$DD
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+ 
+val <- df$P
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Mn
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$S
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Mn.S
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Mn.S.critical..theoretical.
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$START_TEMP
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$FINISH_TEMP
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$CS
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Mould.cooling.water.Flowrate
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Mould.Level
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$MCW.Delta.Temp
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))
+
+val <- df$Sec.Cooling.Zone.flow.rate
+mean <- mean(val)
+median <- median(val)
+mode <- mfv(val)
+print(c(mean,median,mode))

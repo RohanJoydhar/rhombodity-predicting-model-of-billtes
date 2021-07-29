@@ -1,0 +1,13 @@
+library(reader)
+df <- read.csv(file.choose())
+summary(df)
+
+
+s_data <- scale(df)
+write.csv(s_data,"/cloud/project/stand.csv")
+s<- read.csv(file.choose())
+summary(s)
+
+library(tidyverse)
+ggplot(s,aes(new_var)) +geom_histogram(fill = "#9db2cf") + theme_linedraw()
+ggplot(df,aes(x=new_var,y=dd)) +geom_point(color ="#9db2cf") + theme_linedraw()

@@ -1,0 +1,29 @@
+package("reader")
+df <- read.csv(file.choose())
+library(ggplot2)
+
+
+val <- df$Sec.Cooling.Zone.flow.rate
+men <- mean(val)
+mdn <- median(val)
+stand <- sd(val)
+print(c(men,mdn,stand))
+summary(val)
+ggplot(data = df,aes(TT)) + geom_histogram(fill = "#9db2cf") + theme_light()
+ggplot(data = df,aes(x=Sec.Cooling.Zone.flow.rate,y=DD)) +geom_point(color = "#9db2cf") + labs(y= "Diagonal Difference") +theme_light()
+
+stand_data = function(x){
+  return(x - mean(x, na.rm=TRUE)/sd(x, na.rm=TRUE))
+}
+std_df = as.data.frame(apply(df[5:17],2,stand_data))
+write.csv(std_df,"/cloud/project/standard.csv")
+
+norm_data = function(x){
+  return(x - min(x, na.rm=TRUE)/max(x, na.rm=TRUE) - min(x, na.rm=TRUE))
+}
+nom_df = as.data.frame(apply(df[5:17],2,stand_data))
+write.csv(nom_df,"/cloud/project/normal.csv")
+
+df_z <- read.csv(file.choose())
+summary(df_z$P)
+ggplot(data = df,aes(TT)) + geom_histogram(fill = "#9db2cf") + theme_light()

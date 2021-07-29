@@ -1,0 +1,17 @@
+library(reader)
+df <- read.csv(file.choose())
+ds <- read.csv(file.choose())
+dn <- read.csv(file.choose())
+
+library(tidyverse)
+ggplot(df,aes(heat_ext)) +geom_histogram(fill = "#9db2cf") + theme_linedraw() + labs(title="Before standardized")
+ggplot(ds,aes(heat_ext)) +geom_histogram(fill = "#9db2cf") + theme_linedraw() + labs(title="After standardized")
+ggplot(dn,aes(heat_ext)) +geom_histogram(fill = "#9db2cf") + theme_linedraw() + labs(title="After normalized")
+ggplot(dn,aes(x=heat_ext,y=dd)) +geom_point(color ="#9db2cf") + theme_linedraw()
+
+
+dx <- read.csv(file.choose())
+ggplot(dx,aes(dd,fill=grade_mn)) +geom_histogram() + theme_linedraw() + labs(title = "<-1 as A, -1 to 0.25 as B, 0.25 to 1.5 as C, 1.5< as D")
+ggplot(dx,aes(dd,fill=grade)) +geom_histogram() + theme_linedraw() + labs(title = "caster 1 & 6 as F, 2 & 5 as N, 3 & 4 as C ")
+
+
